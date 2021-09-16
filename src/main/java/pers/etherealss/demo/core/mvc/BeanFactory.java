@@ -47,7 +47,7 @@ public class BeanFactory {
             throw new BeanException("该对象尚未创建，请提供对象的class参数以供初始化");
         }
         // 有提供参数，则通过反射创建对象。这里用到了单例模式的双重检查
-        synchronized (requiredType) {
+        synchronized (CACHE) {
             // 在你获取到锁之后，可能对象已经创建好了，需要再次判断，没有对象则创建
             if (CACHE.get(name) == null) {
                 try {
