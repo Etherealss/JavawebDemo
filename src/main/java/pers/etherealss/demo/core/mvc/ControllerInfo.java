@@ -12,8 +12,14 @@ import java.util.List;
 @Data
 public class ControllerInfo<T> {
 
+    /**
+     * 保存在BeanFactory的hashMap中的bean名称（key）
+     */
     private String beanName;
 
+    /**
+     * controller的类对象
+     */
     private Class<T> controllerClass;
     /**
      * Controller类本身的API信息

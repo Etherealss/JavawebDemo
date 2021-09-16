@@ -54,6 +54,13 @@ public class DispatcherController extends HttpServlet {
         String uri = req.getRequestURI();
         System.out.println(uri);
         try {
+            // 如果请求包含了html，说明是请求页面，直接交予原生Servlet处理
+            // 如果安装了阿里巴巴代码规范插件，下方的两个字符串会被视为魔法值。使用常量定义即可，也更规范。
+            // 我这里偷个懒
+            if (uri.contains(".html") || uri.contains(".jsp")) {
+                super.service(req, resp);
+                return;
+            }
             // HTTP请求类型
             String reqMethodType = req.getMethod();
             // 获取Controller的信息
@@ -103,7 +110,7 @@ public class DispatcherController extends HttpServlet {
     }
 
     /**
-     * 获取请求的Controller对象
+     * 获取请求的Controller对象的API信息
      * @param reqMethod
      * @param uri
      * @return

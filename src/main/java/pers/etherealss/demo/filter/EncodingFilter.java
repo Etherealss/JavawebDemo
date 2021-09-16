@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * @author wtk
- * @description
+ * @description 过滤器 解决编码问题
  * @date 2021-09-16
  */
 @WebFilter(urlPatterns = {"/*"})

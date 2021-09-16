@@ -11,7 +11,7 @@ public class StringUtil {
      * @param classPath 类路径
      * @return
      */
-    public static String getClassNameByPath(String classPath) {
+    public static String getLowerClassNameByPath(String classPath) {
         String className = classPath.substring(classPath.lastIndexOf(".") + 1);
         return getLowerClassName(className);
     }

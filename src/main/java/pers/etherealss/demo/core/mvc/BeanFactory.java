@@ -7,11 +7,17 @@ import java.util.Map;
 
 /**
  * @author wtk
- * @description
+ * @description Bean指的是一类Java对象，源于Spring框架
+ * 在这里，Bean指的就是实例化的Controller对象，它们是单例的，在需要的时候就从这里获取
+ * 所以这个类有创造和存储两个功能
+ *
  * @date 2021-09-14
  */
 public class BeanFactory {
 
+    /**
+     * 保存所有Bean对象的类
+     */
     private static final Map<String, Object> CACHE = new HashMap<>();
 
     public static Object getBean(String name) {
@@ -23,7 +29,9 @@ public class BeanFactory {
     }
 
     /**
-     * 单例模式注册bean对象，比如Controller对象
+     * 单例模式获取bean对象，比如Controller对象
+     * 如果没有则会通过requiredType实例化，没有提供requiredType则会报错
+     * 涉及到了单例模式的双重检查
      * @param name
      * @param requiredType
      * @param args

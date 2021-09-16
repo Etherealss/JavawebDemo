@@ -4,9 +4,6 @@ import pers.etherealss.demo.dao.UserDao;
 import pers.etherealss.demo.common.factory.DaoFactory;
 import pers.etherealss.demo.pojo.po.User;
 import pers.etherealss.demo.service.UserService;
-import pers.etherealss.demo.utils.JdbcUtil;
-
-import java.sql.Connection;
 
 /**
  * @author wtk

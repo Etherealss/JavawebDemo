@@ -45,14 +45,14 @@ public class ServiceTransactionProxy implements InvocationHandler {
             // 获取service执行的结果
             value = method.invoke(serviceRunner, args);
         } catch (Exception ex) {
-            //事务回滚
+            // 出现异常，事务回滚
             System.err.println("Service出现异常了！回滚");
             JdbcUtil.rollbackTransaction();
             throw ex;
         } finally {
             // 事务提交
             JdbcUtil.commitTransaction();
-            // 事务完毕，结束事务
+            // 事务完毕，结束事务，释放连接
             JdbcUtil.closeTransaction();
         }
         return value;

@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author wtk
- * @description
+ * @description Handler信息。这里的Handler指的是Controller或者其API方法
  * @date 2021-09-14
  */
 @Data

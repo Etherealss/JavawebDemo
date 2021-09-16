@@ -19,7 +19,8 @@ import java.util.List;
  */
 public class ControllerScanner {
     /**
-     * 这个是Controller包所在的位置，建议写在配置文件中。换项目的时候直接改配置文件就行
+     * 这个是Controller包所在的位置
+     * 建议写在配置文件中。换项目的时候直接改配置文件就行
      */
     private static String scanPath = "pers\\etherealss\\demo\\controller";
 
@@ -34,12 +35,11 @@ public class ControllerScanner {
             if (resource != null && resource.toString().startsWith("file")) {
                 // 可以debug看一下：
                 // System.out.println(resource.toString());
-                List<File> fileList = new ArrayList<>();
                 String filePath = URLDecoder.decode(resource.getFile(), "utf-8");
 
                 File dir = new File(filePath);
                 // 遍历包下的所有文件
-                fetchFileList(dir, fileList);
+                List<File> fileList = fetchFileList(dir);
                 for (File f : fileList) {
                     String classPath = getClassPath(f);
                     if (classPath == null) {
@@ -52,7 +52,8 @@ public class ControllerScanner {
                         continue;
                     }
 
-                    String className = StringUtil.getClassNameByPath(classPath);
+                    // 获取类名，首字母小写
+                    String className = StringUtil.getLowerClassNameByPath(classPath);
 
                     // 构造单例对象并保存
                     BeanFactory.getBean(className, clazz);
@@ -73,8 +74,17 @@ public class ControllerScanner {
 
     /**
      * 递归获取包下所有的文件
-     * @param dir
-     * @param fileList
+     * @param dir 路径
+     */
+    private static List<File> fetchFileList(File dir) {
+        List<File> fileList = new ArrayList<>();
+        fetchFileList(dir, fileList);
+        return fileList;
+    }
+
+    /**
+     * 递归方法
+     * @param dir 路径
      */
     private static void fetchFileList(File dir, List<File> fileList) {
         if (dir.isDirectory()) {
