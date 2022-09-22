@@ -1,7 +1,7 @@
 package pers.etherealss.demo.service.impl;
 
 import pers.etherealss.demo.dao.UserDao;
-import pers.etherealss.demo.common.factory.DaoFactory;
+import pers.etherealss.demo.infrastructure.factory.DaoFactory;
 import pers.etherealss.demo.pojo.po.User;
 import pers.etherealss.demo.service.UserService;
 

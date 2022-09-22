@@ -1,7 +1,7 @@
 package pers.etherealss.demo.service.impl;
 
 import junit.framework.TestCase;
-import pers.etherealss.demo.common.factory.ServiceProxyFactory;
+import pers.etherealss.demo.infrastructure.factory.ServiceProxyFactory;
 import pers.etherealss.demo.pojo.po.User;
 import pers.etherealss.demo.service.UserService;
 

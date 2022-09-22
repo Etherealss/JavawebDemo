@@ -3,8 +3,8 @@ package pers.etherealss.demo.pojo.po;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pers.etherealss.demo.core.repository.annotation.DbField;
-import pers.etherealss.demo.core.repository.annotation.DbFieldId;
+import pers.etherealss.demo.infrastructure.core.repository.annotation.DbField;
+import pers.etherealss.demo.infrastructure.core.repository.annotation.DbFieldId;
 
 import java.util.Date;
 

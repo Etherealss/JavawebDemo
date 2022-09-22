@@ -2,7 +2,7 @@ package pers.etherealss.demo.pojo.vo;
 
 import lombok.Getter;
 import lombok.ToString;
-import pers.etherealss.demo.common.enums.ApiInfo;
+import pers.etherealss.demo.infrastructure.enums.ApiInfo;
 
 import java.io.Serializable;
 

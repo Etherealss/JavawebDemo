@@ -1,15 +1,16 @@
 package pers.etherealss.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import pers.etherealss.demo.common.factory.ServiceProxyFactory;
-import pers.etherealss.demo.core.mvc.annotation.ServletHandler;
-import pers.etherealss.demo.core.mvc.enums.RequestType;
+import pers.etherealss.demo.infrastructure.factory.ServiceProxyFactory;
+import pers.etherealss.demo.infrastructure.core.mvc.annotation.ServletHandler;
+import pers.etherealss.demo.infrastructure.core.mvc.enums.RequestType;
 import pers.etherealss.demo.pojo.po.User;
 import pers.etherealss.demo.pojo.vo.ApiMsg;
 import pers.etherealss.demo.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.Method;
 
 /**
  * @author wtk
@@ -22,9 +23,13 @@ public class UserController {
     private UserService userService = ServiceProxyFactory.getUserService();
 
     /**
-     * ServletHandler注解的value参数表示 /users请求下的/login请求会由这个方法处理
+     * ServletHandler注解（类上和方法上都有）的value参数表示:
+     * /users 请求下的 /login 请求会由这个方法处理
      * type参数限定了该方法只能处理POST请求
+     *
      * 方法参数固定为HttpServletRequest req, HttpServletResponse resp, JSONObject params
+     * 原因见DispatcherController 里面的doInvoke方法
+     *
      * 方法返回值建议为 {@code ApiMsg<User>}
      *
      * @param req

@@ -2,6 +2,7 @@ package pers.etherealss.demo.core.mvc;
 
 import junit.framework.TestCase;
 import pers.etherealss.demo.controller.UserController;
+import pers.etherealss.demo.infrastructure.core.mvc.BeanFactory;
 
 public class BeanFactoryTest extends TestCase {
 

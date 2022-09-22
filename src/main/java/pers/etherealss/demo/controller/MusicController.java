@@ -1,7 +1,7 @@
 package pers.etherealss.demo.controller;
 
-import pers.etherealss.demo.core.mvc.annotation.ServletHandler;
-import pers.etherealss.demo.core.mvc.enums.RequestType;
+import pers.etherealss.demo.infrastructure.core.mvc.annotation.ServletHandler;
+import pers.etherealss.demo.infrastructure.core.mvc.enums.RequestType;
 
 /**
  * @author wtk

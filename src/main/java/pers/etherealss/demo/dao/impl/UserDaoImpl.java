@@ -1,6 +1,6 @@
 package pers.etherealss.demo.dao.impl;
 
-import pers.etherealss.demo.core.repository.SimpleBaseMapper;
+import pers.etherealss.demo.infrastructure.core.repository.SimpleBaseMapper;
 import pers.etherealss.demo.dao.UserDao;
 import pers.etherealss.demo.pojo.po.User;
 
