@@ -137,7 +137,9 @@ public class ControllerScanner {
         /*
          反射Controller类的方法
          */
-        HandlerInfo controllerHandlerInfo = new HandlerInfo(clazzSimpleName, clazzPathName, urlPaths, annotation.priority(), annotation.type());
+        HandlerInfo controllerHandlerInfo =
+                new HandlerInfo(clazzSimpleName, clazzPathName,
+                        urlPaths, annotation.priority(), annotation.type());
 
         List<HandlerInfo> methodHandlerInfos = new ArrayList<>();
         for (Method method : clazz.getMethods()) {
