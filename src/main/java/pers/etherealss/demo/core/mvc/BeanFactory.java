@@ -52,9 +52,13 @@ public class BeanFactory {
         }
         try {
             sharedInstance = requiredType.getDeclaredConstructor().newInstance();
-            // ConcurrentHashMap保证线程安全
             CACHE.putIfAbsent(name, sharedInstance);
-            return sharedInstance;
+            // 避免并发导致重复创建对象。
+            // 如果直接返回 sharedInstance，而后续线程并发更新了 CACHE 里的对象，
+            // 那就相当于有了两个“单例”：sharedInstance 和 CACHE里的对象
+            // 而 CACHE.putIfAbsent 具有原子性，可以保证从头到尾只有一个对象进入 CACHE
+            // 直接返回 CACHE 里的对象可以保证只有一个对象被外界使用到
+            return (T) CACHE.get(name);
         } catch (Exception e) {
             throw new BeanException("通过反射调用构造器构造对象失败");
         }
