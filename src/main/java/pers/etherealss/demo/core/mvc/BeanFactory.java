@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author wtk
- * @description Bean指的是一类Java对象，源于Spring框架
+ * @description Bean指的是一类Java对象
  * 在这里，Bean指的就是实例化的Controller对象，它们是单例的，在需要的时候就从这里获取
  * 所以这个类有创造和存储两个功能
  * @date 2021-09-14
